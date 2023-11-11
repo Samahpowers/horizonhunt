@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+   
+  
+}
+
+
+
+
+.second-header-img {
+    display: flex; /* Center the image horizontally and vertically */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin: 0 64px;
+}
+
+.second-header-img img {
+    border: none;
+    width: 100%; /* Set the image width to 90% of its container */
+    max-height: 340px;
+    /* max-height: 340px; */
+}
+.work-header {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    font-weight: 600;
+    margin-top: 30px;
+    flex-wrap: wrap; /* Allow flex items to wrap */
+  }
+  
+.work-header p:hover{
+    background-color: black;
+
+}
+
+  .work-header p {
+    width: 560px; /* Adjust the width as needed for wrapping */
+    background: rgb(80, 80, 238);
+    padding: 18px 16px;
+    margin-top: 16px;
+    color: #fff;
+    text-align: center;
+    column-gap: 10px;
+    cursor: pointer;
+  }
+  
+
+
+
+
+.main-texts{
+   /* padding: 6px 64px; */ 
+    margin-top: 40px;
+    text-align: right;
+    color: rgb(79, 79, 156);
+    font-weight: 600;
+    background-color: rgba(0, 0, 0, 0.03);
+    padding: 24px 24px;
+  
+}
+
+.main-texts p{
+ 
+}
+
+.search{
+    margin: 0 68px;
+}
+
+/*Media query*/
+/*
+@media (max-width: 600px) {
+    .nav-center, 
+    .contact
+    {
+        display: none;
+    }  
+    .left-nav-bar {
+       width: 600px;
+       box-shadow:none;
+      
+        padding: 0px 60px;
+       
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%); /* Horizontal centering using transform 
+        justify-content: center; 
+      }
+      .left-nav-bar img{
+       display: none;
+       width: 45px;
+       height: 40px;
+      }
+      .last-p{
+        display: block;
+        width: 300px;
+      }
+}
+.jobs{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-left: 60px;
+}
+
+.jobs p{
+    font-size: 18px;
+    padding-right: 10px;
+    color: rgb(29, 15, 236);
+    font-weight: 800;
+}
+*/

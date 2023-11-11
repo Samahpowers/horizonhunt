@@ -1,0 +1,32 @@
+footer{
+    
+    height: fit-content;
+    background-color: rgb(240, 240, 240);
+    margin-left: 10px;
+    margin-right: 10px;
+
+    
+}
+footer p{
+    padding: 20px 0;
+   text-align: center;
+   margin-top: 12px;
+   color: #303030;
+}
+footer p a{
+   color: blue;
+   color: #303030;
+   
+}
+
+.icon-size {
+    width: 35px;
+    height: 35px;
+    color: blue;
+  }
+  
+  .copyright{
+    font-size: 12px;
+    font-weight: 100;
+    color: rgb(124, 124, 255);
+  }

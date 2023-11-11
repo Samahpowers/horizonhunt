@@ -1,0 +1,108 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.work-header a{
+    color: #fff;
+}
+.job-seekers-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6px 12px;
+}
+.job-seekers-right ul li{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 6px 10px;
+    width: 288px;
+    margin-top: 12px;
+    border-bottom: 1px solid #c5c5c5;
+    border-top: 1px solid #c5c5c5;
+    outline: none;
+    cursor: pointer;
+    border-radius: 16px;
+}
+ul span{
+    width: fit-content;
+    font-size: 12px;
+   color: blanchedalmond;
+   background-color: rgb(71, 71, 71);
+   padding: 2px 4px;
+   border-radius: 10px;
+}
+ul li a{
+    text-decoration: none;
+   
+}
+
+.main-form-section{
+    column-gap: 10px;
+    padding: 0px 14px;
+    justify-content: center;
+    
+    
+}
+
+.job-seekers-section{      
+    column-gap: 10px;
+    margin-top: 10px;     
+    display: flex;
+    flex-wrap: wrap;    
+    width: 100%;   
+    justify-content: space-between;
+   
+
+}
+
+.job-employers-section{
+ 
+}
+
+.job-seekers-form{
+    margin-top: 10px;
+    
+}
+.job-seekers-form p{
+    width: 288px;
+    padding-bottom: 10px;
+    color: blue;
+}
+ form input{
+    display: flex;  
+    flex-direction: column;
+    justify-content: center;
+    width: 288px;
+    padding: 6px 12px;    
+    margin-top: 2px;
+     list-style: none;
+     padding: 4px 10px;    
+     border: 1px solid #dadada;
+   background-color: transparent;
+     outline: none;   
+     outline: none;
+     cursor: pointer;
+    
+}
+
+.form-btn{
+    width:288px;
+    padding: 6px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: none;
+    outline: none;
+    margin-bottom: 20px;
+    margin-top: 6px;
+}
+
+@media (max-width: 618px){
+    .job-seekers-section{
+        justify-content: center;
+    }
+}

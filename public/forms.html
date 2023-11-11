@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forms</title>
+    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="header.css">
+    <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script defer src="forms.js"></script>
+
+</head>
+<body>   
+      
+    <div class="main-form-container">
+             <!---------------  Header section  --------------->
+        
+    <div class="header-wraper">
+        <p class="last-p"> platform that connects job seekers with employers </p>
+        <div class="left-nav-bar">
+            <p class="logo-main"><img src="images/logo .jpeg" ></p>
+            <p class="horizon">Horizon Hunt International</p>  <br>
+                    
+        </div>
+        
+        
+        
+        <div class="nav-center">
+            <p><a href="#">Home</a></p>
+            <p class="job-seekers"><a href="#">Job Seekers</a></p>
+            <p class="employers"><a href="#">Employers</a></p>
+            <p><a href="#">Location</a></p>
+            <p><a href="#">About Us</a></p>
+        </div>
+      <!--<ion-icon class="ellipsis-vertical" name="ellipsis-vertical-outline"></ion-icon> -->  
+        
+        <p class="contact">Contacts</p>
+        <div class="upper-right-nav">
+            <p><img  width="60px" src="images/logo .jpeg" alt=""></p>
+         
+            
+            
+        </div>
+    </div>
+
+
+      
+        <div class="main-form-section">
+         
+            <!------------------    Job-seekers Section     -------------------->
+        <div class="job-seekers-section">      
+               <div class="job-seekers-right">
+                <h3 class="tittle">JOB CATERGORIES</h3><br>
+                <ul>                    
+                    <h3>OFFICE JOBS</h3><br>
+                    <li><a href="#">Form IV Leavers</a> <span>470 POS</span></li>
+                    <li><a href="#">College Graduates</a><span>300 POS</span></li>
+                    <li><a href="#">University Graduates</a><span>14 POS</span></li>
+                    <li><a href="#">Technical Graduates</a><span>600 POS</span></li><br>
+                </ul>
+                <ul>
+                    <h3>MANUAL JOBS</h3>
+                    <li><a href="#">Office Cleaners</a><span>600 POS</span></li>
+                    <li><a href="#">Supermarket Attendants</a><span>1000 POS</span></li>
+                    <li><a href="#">Divers</a><span>1100 POS</span></li>       
+                    <li><a href="#">Plumbers</a><span>1100 POS</span></li>       
+                    <li><a href="#">Gardeners</a><span>1100 POS</span></li>       
+                    <li><a href="#">House Helps</a><span>1100 POS</span></li>       
+                    
+                </ul>
+                    
+               
+               </div>
+            <br>
+        
+            <div class=" job-seekers-form">
+                <p>Fill in the application form quoting the preffered job category bellow</p>
+                <h3 class="tittle">Job Seeker Apllication Details</h3> 
+                            <form >                                 
+                                
+                                <input type="text" id="name" placeholder="Type Full Names">                           
+                                <input type="text"  id="tel" placeholder="Type Tel No.">                
+                                <input type="email"  id="email" placeholder="type Email">                      
+                                <input type="location-prefered"  id="location-prefered" placeholder="Type Location you prefer e.g Nakuru">                      
+                                <input type="job-category"  id="job-category" placeholder="type Job category you want">                      
+                                <input type="edu-level"  id="edu-level" placeholder="type Education Level e.g Form IV">                      
+                                <br>
+                                <button class="form-btn">Submit</button>                                                     
+                                                             
+                            </form>        
+                <p>Some Applicants may be requested to provide their CVs before Interviews in cases where required</p>         
+            </div>                                       
+        </div>
+        <br>                
+
+        <!------------------    Eployment Section     -------------------->
+        <div class="job-employers-section">
+
+            <h3 class="tittle">HIRING</h3>
+            <h4>Employment Details Request</h4>
+            <p>Provide the details bellow as well as upload epmloyment Form if any</p>
+
+                    <!------  Eployment  Form  ----->
+            <div class="form-wraper-employers">
+                <form >  
+                    <p>Give Your Company Details here</p>      
+                    <label id="name" for="name">Company Name</label>
+                    <input type="text" id="name"> <br>
+                     
+                    <label id="location" for="location">Location</label>
+                    <input type="text"  id="location"><br>
+                     
+                    <label id="tel" for="tel">Telephone Number</label>
+                    <input type="text"  id="tel"><br>
+                     
+                    <label id="address" for="address">Address</label>
+                    <input type="text"  id="address"><br>
+                     
+                    <label id="job-tittle" for="job-tittle">Job tittle</label>
+                    <input type="text"  id="job-tittle"><br>
+    
+                    <label id="email" for="email">Email</label>
+                    <input type="email"  id="tel"><br>                   
+                  
+                    <label id="job-form" for="job-form">Upload Job Form</label>
+                    <input type="file"  id="job-form">
+                    <button class="form-btn">Submit</button>
+            </form>
+            </div>
+                    
+            
+            
+        </div>
+    </div>
+      
+        
+    <footer>
+        <p>Horizon Hunt Human Resource Centre Inc</p>
+        <p><a href="#">info@horizonhunt.ca</a></p>
+        <p><a href="#">horizonhuntglobal@gmail.com</a></p>
+    
+        <p>
+            <a href="#">
+                <ion-icon name="logo-facebook" class="icon-size"></ion-icon>
+              </a>
+              
+            <a href="#"><ion-icon name="logo-instagram" class="icon-size"></ion-icon></a>
+        </p>
+        <p class="copyright">Copyright 2023 Horizon Hunt Human Resource Centre Inc.</p>
+    </footer>
+    
+    
+
+    </div>
+       
+</body>
+</html>
