@@ -1,6 +1,7 @@
 import { application } from "express";
 import bcrypt from "bcrypt"
 import Applicant from "../model/applicant.js";
+import  Jwt  from "jsonwebtoken";
 
 
 export const registerApplicant = async(req, res)=>{
@@ -115,3 +116,39 @@ export const updateApplicant = async (req, res) => {
       }
     };
     
+
+    // login Applicant
+    export const login =async (req, res)=>{
+      const {tel, password} = req.body
+      if(!tel || !password){
+        res.status(400)
+        throw new Error(`Telephone number and Email Required`)
+      }
+      const applicant = await Applicant.findOne({tel})
+      //Then compare password with hashedPassword
+      if(applicant && (await bcrypt.compare(password, applicant.password))) {
+        const accessToken = Jwt.sign({
+          applicant:{
+            tel:applicant.tel,
+            email:applicant.email,
+            id:applicant.id
+          }          
+        },
+        process.env.ACCESS_TOKEN_SECRET,
+        {expiresIn: "1d"}
+        )
+
+        res.status(200).json({accessToken})
+      } else {
+        res.status(401)
+        throw new Error(`Phone number or Password Incorrect`)
+      }
+      
+      
+    }
+
+    //Logout Applicant
+    export const logout = async(req, res)=>{
+      res.status(200).json({Messege: `Applicant logged out`})
+    }
+

@@ -12,6 +12,7 @@ app.use(express.static("public"))
 app.use(express.json()) //for passing incoming data fromthe client
 app.use('/api/uploads', uploadsRouter);
 app.use('/api/applicants', applicantRouter);
+
 app.use(errorHandler)
 
 
