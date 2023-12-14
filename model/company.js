@@ -1,8 +1,8 @@
 import mongoose, { model } from "mongoose";
 const {Schema} = mongoose
 const componyDataSchema = new Schema ({
-    companyName: String,
-    telephoneNumber: {
+    name: String,
+    tel: {
         type: String,
         unique:true
     },
@@ -10,6 +10,9 @@ const componyDataSchema = new Schema ({
         type: String,
         unique:true
     },
+    location: String,
+    jobTittle: String,
+    address: String,
     file: Buffer
    
 

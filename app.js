@@ -1,36 +1,104 @@
 import express from "express";
-import "dotenv/config";
+import enforce from "express-sslify";
+import dotenv from "dotenv";
+import fs from "fs";
+import https from "https";
 import mongoose from "mongoose";
-import uploadsRouter from "./routes/company.js"
+import cors from "cors";
+import uploadsRouter from "./routes/company.js";
+import userRouter from "./routes/userRoutes.js";
 import { errorHandler } from "./middleware/errorHandler.js";
-import applicantRouter from "./routes/applicantRoutes.js";
+
+dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 2000;
 
-app.use(express.static("public"))
-app.use(express.json()) //for passing incoming data fromthe client
-app.use('/api/uploads', uploadsRouter);
-app.use('/api/applicants', applicantRouter);
+const PORT = process.env.PORT || 81;
+const HTTPS_PORT = process.env.HTTPS_PORT || 443;
+const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET || "default_secret";
 
-app.use(errorHandler)
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
+const privateKey = fs.readFileSync("private-key.pem", "utf8");
+const certificate = fs.readFileSync("certificate.pem", "utf8");
+const credentials = { key: privateKey, cert: certificate };
+
+const allowedOrigins = ['https://www.horizonhunt.co.ke', 'https://localhost:345', 'http://localhost:345'];
+
+app.use(express.static("public"));
+app.use(express.json());
+
+app.use(cors({
+  origin: async function (origin, callback) {
+    try {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        throw new Error('Not allowed by CORS');
+      }
+    } catch (error) {
+      callback(error);
+    }
+  },
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+}));
+
+
+app.options("/api/user/initial/applicantinfo", async (req, res) => {
+  try {
+    res.header('Access-Control-Allow-Origin', 'https://localhost:345');
+    res.header('Access-Control-Allow-Methods', 'POST');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    res.status(200).end();
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+app.use((req, res, next) => {
+  console.log("Received request:", req.url);
+  next();
+});
+
+app.get('/', (req, res) => {
+  res.sendFile('index.html', { root: 'public' });
+});
+
+app.use("/api/company", uploadsRouter);
+app.use("/api/user", userRouter);
+app.use(errorHandler);
 
 const connectDb = async () => {
-    try {
-            mongoose.connect(process.env.CONNECTION_STRING, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
-        console.log(`MongoDB connected and ready`);
-    } catch (error) {
-        console.error(`MongoDB connection error: ${error.message}`);
-        process.exit(1); // Terminate the application if the database connection fails
-    }
+  try {
+    await mongoose.connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log(`MongoDB connected and ready`);
+  } catch (error) {
+    console.error(`MongoDB connection error: ${error.message}`);
+    process.exitCode = 1;
+    process.exit();
+  }
 };
 
+process.on("SIGINT", async () => {
+  try {
+    await mongoose.connection.close();
+    console.log("MongoDB connection closed through app termination");
+    process.exit(0);
+  } catch (error) {
+    console.error(`Error closing MongoDB connection: ${error.message}`);
+    process.exit(1);
+  }
+});
 
-app.listen(PORT, () => {
-  connectDb()
-  console.log(`Server running on port: ${PORT}`);
+const httpsServer = https.createServer(credentials, app);
+
+httpsServer.listen(HTTPS_PORT, async () => {
+//await connectDb();
+  console.log(`Server running on port: ${HTTPS_PORT}`);
 });
