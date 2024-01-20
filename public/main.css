@@ -1,20 +1,24 @@
 *{
-    margin: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 6px;
     padding: 0;
-    box-sizing: border-box;
-   
-  
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-sizing: border-box;  
+     
 }
-
+main{
+ 
+  justify-content: center; /* Center horizontally */
+  /* align-items: center; Center vertically */
+}
 
 
 
 .second-header-img {
     display: flex; /* Center the image horizontally and vertically */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    margin: 0 64px;
+    
+    
+   
+   
 }
 
 .second-header-img img {
@@ -24,7 +28,7 @@
     /* max-height: 340px; */
 }
 .work-header {
- 
+ width: 100%;
   column-gap: 10px;
     position: relative;
     display: flex;
@@ -46,9 +50,9 @@
 }
 
   .work-header p {
-    width: 560px; /* Adjust the width as needed for wrapping */
+    width: 596px;; /* Adjust the width as needed for wrapping */
     background: rgb(80, 80, 238);
-    padding: 18px 16px;
+    padding: 18px 0px;
     margin-top: 16px;
     color: #fff;
     text-align: center;
@@ -56,34 +60,101 @@
     cursor: pointer;
   }
   
-
-
-
-
 .main-texts{
-   /* padding: 6px 64px; */ 
-    margin-top: 40px;
-    text-align: right;
-    color: rgb(79, 79, 156);
-    font-weight: 600;
-    background-color: rgba(0, 0, 0, 0.03);
-    padding: 24px 24px;
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+  height: fit-content;
+  line-height: 30px;
+  background: url("images/offc.jpg") no-repeat rgb(53, 50, 49); 
+  justify-content: space-around;
+}
+
+
+
+.right-main-text,
+.left-main-text{
+  
+   padding: 32px; 
+   width: 440px;
+    margin-top: 10px;  
+    color: rgba(247, 247, 247, 0.952);    
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
   
 }
 
-.main-texts p{
- 
+.right-main-text,
+.left-main-text
+ {
+background-color: rgba(43, 42, 42, 0.5);
 }
 
+.centre,
+.search_jobs_left{
+  text-align: center;
+  align-items: center;
+  position: relative;
+  max-height: 520px;
+  margin-top: 82px;
+  background: url("images/offc2.webp")no-repeat rgb(187, 184, 182);
+  padding: 16px 8px;
+  border: 3px solid rgb(189, 189, 189);
+  border-radius: 10px;
+  color: #312f2f;
+  font-weight: 900;
+  line-height: 36px;
+}
+.centre h3{
+  background-color: rgba(48, 102, 150, 0.3);
+  align-items: center;
+}
+.centre p{
+  background-color: rgba(48, 102, 150, 0.3);
+  align-items: center;
+}
+.search_jobs_left h3{
+  background-color: rgba(48, 102, 150, 0.3);
+}
+.search_jobs_left p{
+  background-color: rgba(48, 102, 150, 0.3);
+}
+.btn{
+  position: absolute;
+  bottom: 60px;
+  font-size: 18px;  
+  left: 50%;
+  transform: translateX(-40%);
+}
+.btn a{
+  color: orange;
+  text-decoration: none;
+}
+.centre h3{
+  font-size: 18px;
+  font-weight: 900;
+}
 .search{
     margin: 0 68px;
 }
 
 /*Media query*/
-@media (max-width: 600px) {
+
+
+@media (max-width: 862px) {
     .work-header .apply{
         
         display: block;
       }
-     
+     .btn{
+      bottom: 20px;
+     }
+}
+@media (max-width:600px){
+  .right-main-text,
+.left-main-text{
+  background-color: none;
+}
 }

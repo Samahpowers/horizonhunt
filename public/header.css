@@ -2,7 +2,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: 0.8fr 2fr 0.4fr;     
-   margin: 10px 0;
+   margin: 2px 0;
    box-shadow: 
    rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px,
@@ -32,7 +32,7 @@
  .last-p{    
     margin-top: 10px;
     margin-bottom: 10px;
-    color: rgb(134, 134, 221);
+    color: rgb(4, 4, 230);
 }
 
 .nav-center{
@@ -85,17 +85,26 @@
 }
 
 
-@media (max-width: 618px){
+@media (max-width: 842px){
     .header-wraper{
         padding: 0;
+        margin:  0;        
+        border-bottom: 2px solid rgb(128, 128, 128);
+        border-top: 2px solid rgb(128, 128, 128);
+        box-shadow: none;
     }
   .logo-main img{
     width: 60px;
   }
-}
-@media (max-width:500px) {
-    .nav-center,
-    .contact {
+  
+    .upper-right-nav{
         display: none;
     }
 }
+@media(max-width:830px){
+    .nav-center
+     {
+        display: none;
+    }
+}
+
